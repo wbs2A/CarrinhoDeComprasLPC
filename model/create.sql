@@ -67,7 +67,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `carrinho`.`endereco`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carrinho`.`endereco` (
-  `idendereco` INT(11) NOT NULL,
+  `idendereco` INT(11) NOT NULL AUTO_INCREMENT,
   `rua` VARCHAR(45) NULL DEFAULT NULL,
   `Estado_Id` INT(11) NOT NULL,
   `Cidade_id` INT(11) NOT NULL,
@@ -123,7 +123,7 @@ COMMENT = '	';
 -- Table `carrinho`.`compra`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carrinho`.`compra` (
-  `idCompra` INT(11) NOT NULL,
+  `idCompra` INT(11) NOT NULL AUTO_INCREMENT,
   `estado` ENUM('Nocarrinho', 'Finalizada') NOT NULL,
   `entrega` ENUM('semComprovante', 'preparandoEntrega', 'aCaminho', 'entregue') NOT NULL,
   `endereco_idendereco` INT(11) NOT NULL,
@@ -149,10 +149,11 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `carrinho`.`produto`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carrinho`.`produto` (
-  `idProduto` INT(11) NOT NULL,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `descricao` TEXT NULL DEFAULT NULL,
-  `valor` FLOAT NULL DEFAULT NULL,
+  `idProduto` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `descricao` TEXT NOT NULL,
+  `valor` FLOAT NOT NULL,
+  `categoria` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`idProduto`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -162,7 +163,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `carrinho`.`imagem`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carrinho`.`imagem` (
-  `idimagem` INT(11) NOT NULL,
+  `idimagem` INT(11) NOT NULL AUTO_INCREMENT,
   `caminho` VARCHAR(45) NOT NULL,
   `Produto_idProduto` INT(11) NOT NULL,
   PRIMARY KEY (`idimagem`),
@@ -6158,3 +6159,23 @@ INSERT INTO `cidade` (`id`, `nome`, `Uf`, `IBGE`) VALUES
 (5608, 'Balneário Rincão', 24, 4220000),
 (5609, 'Pescaria Brava', 24, 4212650),
 (5610, 'Exterior', 99, 9999999);
+INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Fujifilm X100T 16 MP Digital Camera (Silver)","Produto bacana",350.00,"product-item men");
+INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Samsung CF591 Series Curved 27-Inch FHD Monitor","Produto legal",550.00,"product-item women");
+INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Blue Yeti USB Microphone Blackout Edition","Produto firmeza",150.00,"product-item women");
+INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("DYMO LabelWriter 450 Turbo Thermal Label Printer","Produto firmeza",430.00,"product-item accessories");
+INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Pryma Headphones, Rose Gold & Grey","Produto firmeza",80.00,"product-item women men");
+INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Fujifilm X100T 16 MP Digital Camera (Silver)","Produto interessante",80.00,"product-item accessories");
+INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Samsung CF591 Series Curved 27-Inch FHD Monitor","Produto novo",680.00,"product-item women");
+INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Blue Yeti USB Microphone Blackout Edition","Produto novo",80.00,"product-item women");
+INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Blue Yeti USB Microphone Blackout Edition","Produto novo",80.00,"product-item women");
+INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("DYMO LabelWriter 450 Turbo Thermal Label Printer","Produto primo",50.00,"product-item men");
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_1.png",1);
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_2.png",2);
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_3.png",3);
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_4.png",4);
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_5.png",5);
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_6.png",6);
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_7.png",8);
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_8.png",9);
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_9.png",10);
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_10.png",11);

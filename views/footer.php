@@ -1,4 +1,4 @@
-  <?php echo'<script src="../js/jquery-3.2.1.min.js"></script>
+  <?php echo'
 			<script src="../styles/bootstrap4/popper.js"></script>
 			<script src="../styles/bootstrap4/bootstrap.min.js"></script>
 			<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
