@@ -6179,3 +6179,19 @@ INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_
 INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_8.png",9);
 INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_9.png",10);
 INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_10.png",11);
+INSERT INTO `endereco`(`rua`, `Estado_Id`, `Cidade_id`, `bairro`, `cep`, `numero`, `pais_id`) VALUES ("Rua lá de casa", 1, 1, "novo","47777",23,1);
+INSERT INTO `cliente`(`email`, `rg`, `endereco_idendereco`, `id`, `nascimento`) VALUES ("usuario@gmail.com", "3232323232", 1, 1,"03/03/1999");
+delimiter //
+
+create procedure InserirCarrinho(in idEndereco int, in idCliente int, in produto int, in q_quantidade int)
+begin
+	START TRANSACTION;
+		INSERT INTO `compra`(`estado`, `endereco_idendereco`, `cliente_id`) VALUES ("Nocarrinho",idEndereco,idCliente);
+		set @idCompra = 0;
+		SELECT LAST_INSERT_ID() into @idCompra;
+		INSERT INTO `produto_has_compra`(`Produto_idProduto`, `Compra_idCompra`, `quantidade`) VALUES (produto, @idCompra, q_quantidade);
+	COMMIT;
+end//
+
+delimiter ;
+call InserirCarrinho(1,1,2,4);
