@@ -10,9 +10,9 @@ include 'navbar.php'
 				<div class="row align-items-center fill_height">
 					<div class="col">
 						<div class="main_slider_content">
-							<h6>Spring / Summer Collection 2017</h6>
-							<h1>Get up to 30% Off New Arrivals</h1>
-							<div class="red_button shop_now_button"><a href="#">shop now</a></div>
+							<h6>Coleção Outono 2019</h6>
+							<h1>Ganhe 30% de desconto na nova coleção</h1>
+							<div class="red_button shop_now_button"><a href="#">compre agora</a></div>
 						</div>
 					</div>
 				</div>
@@ -27,21 +27,21 @@ include 'navbar.php'
 					<div class="col-md-4">
 						<div class="banner_item align-items-center" style="background-image:url(../images/banner_1.jpg)">
 							<div class="banner_category">
-								<a href="htmlFiles/categories.html">women's</a>
+								<a href="htmlFiles/categories.html">feminino</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="banner_item align-items-center" style="background-image:url(../images/banner_2.jpg)">
 							<div class="banner_category">
-								<a href="htmlFiles/categories.html">accessories's</a>
+								<a href="htmlFiles/categories.html">acessórios</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="banner_item align-items-center" style="background-image:url(../images/banner_3.jpg)">
 							<div class="banner_category">
-								<a href="htmlFiles/categories.html">men's</a>
+								<a href="htmlFiles/categories.html">masculino</a>
 							</div>
 						</div>
 					</div>
@@ -56,7 +56,7 @@ include 'navbar.php'
 				<div class="row">
 					<div class="col text-center">
 						<div class="section_title new_arrivals_title">
-							<h2>New Arrivals</h2>
+							<h2>Novidades</h2>
 						</div>
 					</div>
 				</div>
@@ -64,10 +64,10 @@ include 'navbar.php'
 					<div class="col text-center">
 						<div class="new_arrivals_sorting">
 							<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
-								<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
-								<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".women">women's</li>
-								<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".accessories">accessories</li>
-								<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".men">men's</li>
+								<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">todos</li>
+								<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".women">feminino</li>
+								<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".accessories">acessórios</li>
+								<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".men">masculino</li>
 							</ul>
 						</div>
 					</div>
@@ -78,7 +78,7 @@ include 'navbar.php'
 						<div id="produto" class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 						</div>
 					</div>
-				</div>		
+				</div>
 			</div>
 		</div>
 		<!-- Benefit -->
@@ -90,7 +90,7 @@ include 'navbar.php'
 						<div class="benefit_item d-flex flex-row align-items-center">
 							<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
 							<div class="benefit_content">
-								<h6>free shipping</h6>
+								<h6>Frete grátis</h6>
 								<p>Suffered Alteration in Some Form</p>
 							</div>
 						</div>
@@ -108,7 +108,7 @@ include 'navbar.php'
 						<div class="benefit_item d-flex flex-row align-items-center">
 							<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
 							<div class="benefit_content">
-								<h6>45 days return</h6>
+								<h6>Retorno em 45 dias</h6>
 								<p>Making it Look Like Readable</p>
 							</div>
 						</div>
@@ -117,8 +117,8 @@ include 'navbar.php'
 						<div class="benefit_item d-flex flex-row align-items-center">
 							<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
 							<div class="benefit_content">
-								<h6>opening all week</h6>
-								<p>8AM - 09PM</p>
+								<h6>Aberto a semana toda</h6>
+								<p>8:00 - 21:00</p>
 							</div>
 						</div>
 					</div>
@@ -133,15 +133,15 @@ include 'navbar.php'
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-							<h4>Newsletter</h4>
-							<p>Subscribe to our newsletter and get 20% off your first purchase</p>
+							<h4>Notícias</h4>
+							<p>Inscreva-se para receber nossas ofertas e receba 20% de desconto na sua primeira compra</p>
 						</div>
 					</div>
 					<div class="col-lg-6">
 						<form action="post">
 							<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
 								<input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
-								<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
+								<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">inscrever</button>
 							</div>
 						</form>
 					</div>
@@ -159,7 +159,7 @@ include 'navbar.php'
 							<ul class="footer_nav">
 								<li><a href="#">Blog</a></li>
 								<li><a href="#">FAQs</a></li>
-								<li><a href="htmlFiles/contact.html">Contact us</a></li>
+								<li><a href="htmlFiles/contact.html">Contato</a></li>
 							</ul>
 						</div>
 					</div>
@@ -178,7 +178,7 @@ include 'navbar.php'
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="footer_nav_container">
-							<div class="cr">©2018 All Rights Reserverd. This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#">Colorlib</a></div>
+							<div class="cr">©2019 All Rights Reserved. This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#">Colorlib</a></div>
 						</div>
 					</div>
 				</div>
