@@ -19,7 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 			include_once('../model/App/ModelEndereco.php');
 			$endereco=new ModelEndereco();
 			$t=$endereco->getPais();
-			// print_r($t) ;
+			print_r($t) ;
+			
+			$clasa = json_decode(json_encode($t));
+			print_r($clasa);
 			break;
 		default:
 			break;

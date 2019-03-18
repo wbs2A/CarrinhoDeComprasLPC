@@ -3,7 +3,7 @@
 	    	if(document.querySelector('#produto')){
 	            document.getElementById("produto").innerHTML=data;
 	        }
-	    });
+	});
     if ((window.location.href).indexOf("registrar") != -1) {
     	$("#cep").blur(function(){
     		if($(this).val()){
@@ -12,6 +12,7 @@
     			});
     		}
     	});
+    	$.get
     }
 })();
 function setCookie(cname, cvalue, exdays) {
@@ -43,7 +44,7 @@ function checkCookie(prod) {
     }
     else {
         s =  (getCookie("carrinho")+(prod.toString()+","));
-        setCookie("carrinho",s, 365);
+        setCookie("carrinho",s, 2);
     }
 }
 function addCarrinho(prod){
@@ -52,10 +53,3 @@ function addCarrinho(prod){
     }
 
 }
-$(document).ready(function renderOnScreen() {
-    $.get('controller.php?produto',function (data) {
-        if(document.querySelector('#produto')){
-            document.getElementById("produto").innerHTML=data;
-        }
-    });
-});

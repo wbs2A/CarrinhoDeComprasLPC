@@ -45,17 +45,6 @@ include 'navbar.php'
 								  <div class="col-md-6 mb-3">
 								    <label for="pais">Pais</label>
 								    <select class="form-control" id="pais" name="pais">
-								    	<?php
-							    			
-								    		$j=strrchr (urldecode($_SERVER["REQUEST_URI"]), '/');
-								    		$t=(strlen(urldecode($_SERVER["REQUEST_URI"]))-strlen($j))+1;
-								    		$result = substr(urldecode($_SERVER["REQUEST_URI"]),0,$t) .'controller.php?pais';
-								    		$t=file_get_contents($result,0,null);
-								    		print_r($t);
-								    		die();
-											echo '<option>'.$result.'</option>';
-											echo '<option>'.$result.'</option>';
-										?>
 								    </select>
 								  </div>
 								  <div class="col-md-6 mb-3">
