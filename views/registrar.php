@@ -2,6 +2,7 @@
 include 'header.php';
 include 'navbar.php'
 ?>
+<script type="text/javascript" src="../js/registro.js"></script>
 <div class="container main_slider criar p-1">
 				<div class="row justify-content-center ">
 				    <div class="card col-10 col-lg-9 p-2">
@@ -49,7 +50,7 @@ include 'navbar.php'
 								  </div>
 								  <div class="col-md-6 mb-3">
 								    <label for="cep">CEP</label>
-								    <input type="text" class="form-control" id="cpe" name="cpe" placeholder="">
+								    <input type="text" class="form-control" id="cep" name="cep" placeholder="">
 								  </div>
 						        </div>
 						        <div class="row">
@@ -63,13 +64,13 @@ include 'navbar.php'
 								  </div>
 								  <div class="col-md-4 mb-3">
 								    <label for="rua">Rua</label>
-								    <input type="number" class="form-control" id="rua" name="rua" placeholder="">
+								    <input type="text" class="form-control" id="rua" name="rua" placeholder="">
 								  </div>
 						        </div>
 						        <div class="row">
 								  <div class="col-md-6 mb-3">
 								    <label for="estado">Estado</label>
-								    <input type="number" class="form-control" id="estado" name="estado" placeholder="">
+								    <input type="text" class="form-control" id="estado" name="estado" placeholder="">
 								  </div>
 								  <div class="col-md-6 mb-3">
 								    <label for="cidade">Cidade</label>
