@@ -7,5 +7,4 @@
 			<script src="../js/custom.js"></script>';
   		echo "</body>";
       echo "</html>";
-
 ?>

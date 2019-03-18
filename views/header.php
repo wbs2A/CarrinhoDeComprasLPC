@@ -15,5 +15,26 @@
 				<script src="../js/jquery-3.2.1.min.js"></script>
                 <script src="../js/app.js"></script>';
         echo "</head>";
-        echo "<body>";
+        echo '<body>';
+        session_start();
+		if (isset($_SESSION["user"])) {
+			$user=$_SESSION["user"];
+			echo'<script type="text/javascript">
+			    $("document").ready(function(){
+			    	t=$(`#navUserTopo`).parent();
+			    	$(`#navUserTopo`).remove();
+			    	t2=$(`#navUserTopo`).parent();
+			    	$(`#navUserTopo`).remove();
+			    	$(t).prepend(`<span id="navUserTopo">'.$user->NomeComp.'</span>`);
+			    	$(t2).prepend(`<span id="navUserTopo">'.$user->NomeComp.'</span>`);
+			    	$(`a#navUserBase`).each(function( index ) {
+					  $(this).attr(`href`,`perfil.php`);
+					  $(this).text(`Perfil`);
+					});
+			    	$(t).append(`<a href="controller.php?logout"><span  class="col-4">Sair</span></a>`);
+			    	$(t2).append(`<a href="controller.php?logout"><span  class="col-4">Sair</span></a>`);
+			    });
+			</script>';
+		}
+		
 ?>

@@ -103,7 +103,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carrinho`.`cliente` (
   `email` VARCHAR(45) NOT NULL,
-  `rg` INT(11) NULL DEFAULT NULL,
+  `rg`  VARCHAR(15) NOT NULL,
   `endereco_idendereco` INT(11) NOT NULL,
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nascimento` DATE NOT NULL,
@@ -181,7 +181,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `carrinho`.`login`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carrinho`.`login` (
-  `cpf` INT(11) NOT NULL,
+  `cpf`  VARCHAR(15) NOT NULL,
   `NomeComp` VARCHAR(50) NOT NULL,
   `senha` TEXT NOT NULL,
   `cliente_id` INT(11) NOT NULL,
@@ -202,7 +202,6 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `carrinho`.`pagamento` (
   `idpagamento` INT(11) NOT NULL,
   `nCartao` INT(11) NOT NULL,
-  `cliente_cpf` INT(11) NOT NULL,
   `vencimentoCartao` DATE NULL DEFAULT NULL,
   `cvvCartao` INT(11) NULL DEFAULT NULL,
   `cliente_id` INT(11) NOT NULL,
@@ -6178,9 +6177,17 @@ INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_
 INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_7.png",8);
 INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_8.png",9);
 INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_9.png",10);
-INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_10.png",11);
+INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_10.png",1);
+
+
+
 INSERT INTO `endereco`(`rua`, `Estado_Id`, `Cidade_id`, `bairro`, `cep`, `numero`, `pais_id`) VALUES ("Rua lá de casa", 1, 1, "novo","47777",23,1);
 INSERT INTO `cliente`(`email`, `rg`, `endereco_idendereco`, `id`, `nascimento`) VALUES ("usuario@gmail.com", "3232323232", 1, 1,"03/03/1999");
+
+
+
+
+
 delimiter //
 
 create procedure InserirCarrinho(in idEndereco int, in idCliente int, in produto int, in q_quantidade int)
@@ -6195,3 +6202,5 @@ end//
 
 delimiter ;
 call InserirCarrinho(1,1,2,4);
+
+INSERT INTO `login`(`cpf`, `NomeComp`, `senha`, `cliente_id`) VALUES ("010.101.010-10","Meu querido usuario Teste","meu teste",1)
