@@ -29,8 +29,8 @@ echo '
                                       <i class="fa fa-user" aria-hidden="true"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                      <a class="dropdown-item row" href="#"><i class="fa m-1 fa-sign-in" aria-hidden="true"></i>Sign In</a>
-                                      <a class="dropdown-item row" href="#"><i class="fa m-1 fa-user-plus" aria-hidden="true"></i>Register</a>
+                                        <a id="navUserTopo" class="dropdown-item row p-0 m-0" href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Sign In</a>
+                                        <a id="navUserBase" class="dropdown-item row p-0 m-0" href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Register</a>
                                     </div>
                                   </li>
                                
@@ -58,44 +58,15 @@ echo '
         <div class="hamburger_menu_content text-right">
             <ul class="menu_top_nav">
                 <li class="menu_item has-children">
-                    <a href="#">
-    usd
-                        <i class="fa fa-angle-down"></i>
-                    </a>
+                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i><i class="fa fa-angle-down"></i></a>
                     <ul class="menu_selection">
-                        <li><a href="#">cad</a></li>
-                        <li><a href="#">aud</a></li>
-                        <li><a href="#">eur</a></li>
-                        <li><a href="#">gbp</a></li>
-                    </ul>
-                </li>
-                <li class="menu_item has-children">
-                    <a href="#">
-    English
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="menu_selection">
-                        <li><a href="#">French</a></li>
-                        <li><a href="#">Italian</a></li>
-                        <li><a href="#">German</a></li>
-                        <li><a href="#">Spanish</a></li>
-                    </ul>
-                </li>
-                <li class="menu_item has-children">
-                    <a href="#">
-    My Account
-<i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="menu_selection">
-                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-                        <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                        <li>
+                            <a id="navUserTopo" class="dropdown-item row p-0 m-0" href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Sign In</a>
+                            <a id="navUserBase" class="" href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Register</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="menu_item"><a href="#">home</a></li>
-                <li class="menu_item"><a href="#">shop</a></li>
-                <li class="menu_item"><a href="#">promotion</a></li>
-                <li class="menu_item"><a href="#">pages</a></li>
-                <li class="menu_item"><a href="#">blog</a></li>
                 <li class="menu_item"><a href="#">contact</a></li>
             </ul>
         </div>

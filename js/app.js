@@ -37,8 +37,10 @@ function addCarrinho(prod){
 
 }
 
-(function renderOnScreen(ctxt) {
-$.get('controller.php',function (data) {
-    document.getElementById("produto").innerHTML=data;
-});
+(function renderOnScreen() {
+    $.get('controller.php?produto',function (data) {
+        if(document.querySelector('#produto')){
+            document.getElementById("produto").innerHTML=data;
+        }
+    });
 })();
