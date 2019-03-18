@@ -43,34 +43,44 @@ include 'navbar.php'
 						        <label >Endereço</label>
 						        <div class="row">
 								  <div class="col-md-6 mb-3">
+								    <label for="pais">Pais</label>
+								    <select class="form-control" id="pais" name="pais">
+								    	<?php
+							    			// file_get_contents();
+								    		$j=strrchr (urldecode($_SERVER["REQUEST_URI"]), '/');
+								    		$t=(strlen(urldecode($_SERVER["REQUEST_URI"]))-strlen($j))+1;
+								    		$result = substr(urldecode($_SERVER["REQUEST_URI"]),0,$t);
+
+											echo '<option>'.var_dump(var_dump(file_get_contents($result.'controller?pais'));).'</option>';
+											echo '<option>'.$result.'</option>';
+										?>
+								    </select>
+								  </div>
+								  <div class="col-md-6 mb-3">
 								    <label for="cep">CEP</label>
 								    <input type="text" class="form-control" id="cpe" name="cpe" placeholder="">
 								  </div>
-								  <div class="col-md-6 mb-3">
+						        </div>
+						        <div class="row">
+								  <div class="col-md-4 mb-3">
 								    <label for="numero">Numero</label>
 								    <input type="number" class="form-control" id="numero" name="numero" placeholder="">
 								  </div>
-						        </div>
-						        <div class="row">
-								  <div class="col-md-6 mb-3">
+								  <div class="col-md-4 mb-3">
 								    <label for="bairro">Bairro</label>
 								    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="">
 								  </div>
-								  <div class="col-md-6 mb-3">
+								  <div class="col-md-4 mb-3">
 								    <label for="rua">Rua</label>
 								    <input type="number" class="form-control" id="rua" name="rua" placeholder="">
 								  </div>
 						        </div>
 						        <div class="row">
-								  <div class="col-md-4 mb-3">
-								    <label for="pais">Pais</label>
-								    <input type="text" class="form-control" id="pais" name="pais" placeholder="">
-								  </div>
-								  <div class="col-md-4 mb-3">
+								  <div class="col-md-6 mb-3">
 								    <label for="estado">Estado</label>
 								    <input type="number" class="form-control" id="estado" name="estado" placeholder="">
 								  </div>
-								  <div class="col-md-4 mb-3">
+								  <div class="col-md-6 mb-3">
 								    <label for="cidade">Cidade</label>
 								    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="">
 								  </div>
