@@ -23,8 +23,12 @@ class ModelEndereco{
         }
         return $results;
     }
-    public function getPais($query='select p.nome, p.SL_NOME_PT from pais p;'){
+    public function getPaisesS($query='select p.nome, p.SL_NOME_PT from pais p;'){
         $dados= $this->getAll($query);
-        return $dados;
+        $html='';
+        foreach ($dados as $key => $value2) {
+            $html=$html.' <option>'.$value2->SL_NOME_PT.'</option>';
+        }
+        return $html;
     }
 }

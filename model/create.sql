@@ -6158,6 +6158,7 @@ INSERT INTO `cidade` (`id`, `nome`, `Uf`, `IBGE`) VALUES
 (5608, 'Balneário Rincão', 24, 4220000),
 (5609, 'Pescaria Brava', 24, 4212650),
 (5610, 'Exterior', 99, 9999999);
+
 INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Fujifilm X100T 16 MP Digital Camera (Silver)","Produto bacana",350.00,"men");
 INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Samsung CF591 Series Curved 27-Inch FHD Monitor","Produto legal",550.00,"women");
 INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Blue Yeti USB Microphone Blackout Edition","Produto firmeza",150.00,"women");
@@ -6168,6 +6169,7 @@ INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Samsun
 INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Blue Yeti USB Microphone Blackout Edition","Produto novo",80.00,"women");
 INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("Blue Yeti USB Microphone Blackout Edition","Produto novo",80.00,"women");
 INSERT INTO `produto`(`nome`, `descricao`, `valor`, `categoria`) VALUES ("DYMO LabelWriter 450 Turbo Thermal Label Printer","Produto primo",50.00,"men");
+
 INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_1.png",1);
 INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_2.png",2);
 INSERT INTO `imagem`(`caminho`, `Produto_idProduto`) VALUES ("../images/product_3.png",3);

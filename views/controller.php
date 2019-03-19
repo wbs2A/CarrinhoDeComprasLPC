@@ -15,14 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 			}
 			header("Location: index.php");
 			break;
-		case 'pais':
+		case 'paises':
 			include_once('../model/App/ModelEndereco.php');
 			$endereco=new ModelEndereco();
-			$t=$endereco->getPais();
-			print_r($t) ;
-			
-			$clasa = json_decode(json_encode($t));
-			print_r($clasa);
+			$t=$endereco->getPaisesS();
+			echo $t;
 			break;
 		default:
 			break;
