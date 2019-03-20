@@ -23,18 +23,43 @@ class ModelEndereco{
         }
         return $results;
     }
-    
-    public function getPais($query='select p.nome, p.SL_NOME_PT from pais p;'){
+    public function setAll($query) {
+        $statement = $this->conexao->query($query);
+        return $statement;
+    }
+    public function getPaises($query='select p.nome, p.SL_NOME_PT from pais p;'){
         $dados= $this->getAll($query);
         return $dados;
     }
-
-    public function getFunctio($query){
-        $dados= $this->getAll($query);
-        return $dados;
+    public function getPais($dados){
+        $pais= $this->getAll('SELECT retornaPais("'.$dados['pais'].'");');
+        return $pais[0]->{'retornaPais("'.$dados['pais'].'")'};
+    }
+    public function getEstado($dados,$pais){
+        $estado= $this->getAll('SELECT retornaEstado( "'.$dados['estado'].'",'.$pais.')');
+        return $estado[0]->{'retornaEstado( "'.$dados['estado'].'",'.$pais.')'};
+    }
+    public function getCidade($dados,$estado){
+        $cidade= $this->getAll('SELECT retornaCidade("'.$dados['cidade'].'",'.$estado.');');
+        if (!isset($cidade[0]->{'retornaCidade("'.$dados['cidade'].'",'.$estado.')'})) {
+            $ch = curl_init();
+            $optArray = array(
+                CURLOPT_URL => 'https://api.postmon.com.br/v1/cep/'.$dados['cep'],
+                CURLOPT_RETURNTRANSFER => true
+            );
+            // apply those options
+            curl_setopt_array($ch, $optArray);
+            $t=curl_exec($ch);
+            $j=json_decode($t);
+            echo $j->cidade;
+            curl_close($ch);
+            $this->setAll('call InserirCidade('.$j->cidade_info->codigo_ibge.',"'.$j->cidade.'","'.$estado.'")');
+            $cidade= $this->getAll('SELECT retornaCidade("'.$dados['cidade'].'",'.$estado.');');
+        }
+        return $cidade[0]->{'retornaCidade("'.$dados['cidade'].'",'.$estado.')'};
     }
     public function getPaisesS(){
-        $dados= $this->getPais();
+        $dados= $this->getPaises();
         $html='';
         foreach ($dados as $key => $value2) {
             $html=$html.' <option>'.$value2->SL_NOME_PT.'</option>';

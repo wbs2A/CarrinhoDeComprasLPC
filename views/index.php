@@ -80,7 +80,6 @@ include 'navbar.php'
 								// create a new cURL resource
 								$ch = curl_init("http://localhost/CarrinhoDeComprasLPC/views/controller.php?produto");
 								$t=curl_exec($ch);
-								echo $t;
  								curl_close($ch);
 							?>
 						</div>
