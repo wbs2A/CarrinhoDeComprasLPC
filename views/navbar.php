@@ -29,8 +29,8 @@ echo '
                                       <i class="fa fa-user" aria-hidden="true"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a id="navUserTopo" class="dropdown-item row p-0 m-0" href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Sign In</a>
-                                        <a id="navUserBase" class="dropdown-item row p-0 m-0" href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Register</a>
+                                        <a id="navUserTopo" class="dropdown-item row p-0 m-0 text-center href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Sign In</a>
+                                        <a id="navUserBase" class="dropdown-item row p-0 m-0 text-center href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Register</a>
                                     </div>
                                   </li>
                                
@@ -61,8 +61,8 @@ echo '
                     <a href="#"><i class="fa fa-user" aria-hidden="true"></i><i class="fa fa-angle-down"></i></a>
                     <ul class="menu_selection">
                         <li>
-                            <a id="navUserTopo" class="dropdown-item row p-0 m-0" href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Sign In</a>
-                            <a id="navUserBase" class="" href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Register</a>
+                            <a id="navUserTopo" class="dropdown-item row p-0 m-0 text-center" href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Sign In</a>
+                            <a id="navUserBase" class="text-center" href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Register</a>
                         </li>
                     </ul>
                 </li>

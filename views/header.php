@@ -28,14 +28,15 @@
 			    	$(`#navUserTopo`).remove();
 			    	t2=$(`#navUserTopo`).parent();
 			    	$(`#navUserTopo`).remove();
-			    	$(t).prepend(`<span id="navUserTopo">'.$user->NomeComp.'</span>`);
-			    	$(t2).prepend(`<span id="navUserTopo">'.$user->NomeComp.'</span>`);
+			    	$(t).prepend(`<span id="navUserTopo" class="p-0 m-0 row justify-content-center">'.$user->NomeComp.'</span>`);
+			    	$(t2).prepend(`<span id="navUserTopo" class="p-0 m-0 row justify-content-center">'.$user->NomeComp.'</span>`);
 			    	$(`a#navUserBase`).each(function( index ) {
 					  $(this).attr(`href`,`perfil.php`);
+					  $(this).addClass("row m-0 p-0 w-auto");
 					  $(this).text(`Perfil`);
 					});
-			    	$(t).append(`<a href="controller.php?logout"><span  class="col-4">Sair</span></a>`);
-			    	$(t2).append(`<a href="controller.php?logout"><span  class="col-4">Sair</span></a>`);
+			    	$(t).append(`<a href="controller.php?logout" class="text-center row m-0 p-0 w-auto"><span  class="col-4">Sair</span></a>`);
+			    	$(t2).append(`<a href="controller.php?logout" class="text-center row m-0 p-0"><span  class="col-4">Sair</span></a>`);
 			    });
 			</script>';
 		}
