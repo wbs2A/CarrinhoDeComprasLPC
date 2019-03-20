@@ -33,12 +33,23 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 			$t=$user->validaUser($_POST);
 			if (isset($t)) {
 				$_SESSION["user"]=$t;
-				header("Location: index.php");
+				header("Location: ../index.php");
 			}else{
 				unset($_SESSION['user']);
 				header("Location: login.php");
 			}
 			
+			break;
+		case 'criar':
+			include_once('../model/App/ModelUser.php');
+			$user=new ModelUser();
+			$t=$user->insertUser($_POST);
+			if (isset($t)) {
+				$_SESSION["user"]=$t;
+				header("Location: ../index.php");
+			}else{
+				unset($_SESSION['user']);
+			}
 			break;
 		default:
 			break;

@@ -76,6 +76,13 @@ include 'navbar.php'
 				<div class="row">
 					<div class="col">
 						<div id="produto" class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+							<?php
+								// create a new cURL resource
+								$ch = curl_init("http://localhost/CarrinhoDeComprasLPC/views/controller.php?produto");
+								$t=curl_exec($ch);
+								echo $t;
+ 								curl_close($ch);
+							?>
 						</div>
 					</div>
 				</div>

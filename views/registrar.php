@@ -12,16 +12,16 @@ include 'navbar.php'
 						<div class="p-2 m-3">
 							<form  action="controller.php?criar" method="post">
 						        <div class="row">
-						          	<div class="col-md-12 mb-3">
+						          	<div class="col-md-8 mb-3">
 							          	<label for="nome">Nome Completo</label>
 							            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome completo">
 							        </div>
+							        <div class="col-md-4 mb-3">
+									    <label for="email">Email</label>
+									    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+									  </div>
 						        </div>
 						        <div class="row">
-						          <div class="col-md-4 mb-3">
-								    <label for="email">Email</label>
-								    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
-								  </div>
 								  <div class="col-md-4 mb-3">
 								    <label for="nascimento">Data de nascimento</label>
 								    <input type="date" class="form-control" id="nascimento" name="nascimento" placeholder="">
@@ -29,6 +29,13 @@ include 'navbar.php'
 						          <div class="col-md-4 mb-3">
 								    <label for="telefone">Telefone</label>
 								    <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="">
+								  </div>
+								  <div class="col-md-4 mb-3">
+								    <label for="tipo">Tipo</label>
+								     <select id="tipo" name="tipo" class="form-control">
+								      <option>fixo</option>
+								      <option>celular</option>
+								    </select>
 								  </div>
 						        </div>
 								<div class="row">
@@ -46,6 +53,13 @@ include 'navbar.php'
 								  <div class="col-md-6 mb-3">
 								    <label for="pais">Pais</label>
 								    <select class="form-control" id="pais" name="pais">
+								    	<?php
+											// create a new cURL resource
+											$ch = curl_init("http://localhost/CarrinhoDeComprasLPC/views/controller.php?paises");
+											$t=curl_exec($ch);
+											echo $t;
+			 								curl_close($ch);
+										?>
 								    </select>
 								  </div>
 								  <div class="col-md-6 mb-3">
@@ -79,7 +93,7 @@ include 'navbar.php'
 						        </div>
 							  	<div class="form-group">
 							  		<label for="senha">Senha</label>
-							    	<input type="password" max="6" required name="senha" id="senha" class="form-control" placeholder="Senha">
+							    	<input type="password" required name="senha" id="senha" class="form-control" placeholder="Senha">
 							  	</div>
 							  
 							  	<div class="row justify-content-center">

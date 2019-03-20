@@ -20,33 +20,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `carrinho` DEFAULT CHARACTER SET utf8 ;
 USE `carrinho` ;
 
--- -----------------------------------------------------
--- Table `carrinho`.`cidade`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `carrinho`.`cidade` (
-  `id` INT(11) NOT NULL,
-  `IBGE` INT(11) NOT NULL,
-  `Nome` VARCHAR(255) NOT NULL,
-  `Uf` VARCHAR(2) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `carrinho`.`estado`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `carrinho`.`estado` (
-  `Id` INT(11) NOT NULL,
-  `CodigoUf` INT(11) NOT NULL,
-  `Nome` VARCHAR(50) NOT NULL,
-  `Uf` VARCHAR(2) NOT NULL,
-  `UF_DDD` VARCHAR(10) NOT NULL,
-  `IBGE` INT(11) NOT NULL,
-  `UF_SL` INT(11) NOT NULL,
-  PRIMARY KEY (`Id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -58,6 +31,32 @@ CREATE TABLE IF NOT EXISTS `carrinho`.`pais` (
   `SL_NOME_PT` VARCHAR(255) NOT NULL,
   `sigla` VARCHAR(5) NOT NULL,
   `SL_BACEN` INT(11) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+-- -----------------------------------------------------
+-- Table `carrinho`.`estado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `carrinho`.`estado` (
+  `Id` INT(11) NOT NULL,
+  `Nome` VARCHAR(50) NOT NULL,
+  `Uf` VARCHAR(2) NOT NULL,
+  `UF_DDD` VARCHAR(10) NOT NULL,
+  `IBGE` INT(11) NOT NULL,
+  `UF_SL` INT(11) NOT NULL,
+  PRIMARY KEY (`Id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `carrinho`.`cidade`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `carrinho`.`cidade` (
+  `id` INT(11) NOT NULL,
+  `IBGE` INT(11) NOT NULL,
+  `Nome` VARCHAR(255) NOT NULL,
+  `Uf` VARCHAR(2) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -6203,6 +6202,51 @@ begin
 end//
 
 delimiter ;
+
 call InserirCarrinho(1,1,2,4);
 
-INSERT INTO `login`(`cpf`, `NomeComp`, `senha`, `cliente_id`) VALUES ("010.101.010-10","Meu querido usuario Teste","meu teste",1)
+INSERT INTO `login`(`cpf`, `NomeComp`, `senha`, `cliente_id`) VALUES ("010.101.010-10","Meu querido usuario Teste","meu teste",1);
+
+
+delimiter $$
+
+create procedure InserirUser(in _nome varchar(50),in _email varchar(45),in _data datetime,in _tipo ENUM('fixo', 'celular'),in _telefone varchar(45),in _cpf varchar(15),in _rg varchar(15),in _pais int,in _cep varchar(45),in _numero int, in _bairro varchar(45),in _rua varchar(45),in _estado int,in _cidade int,in _senha text)
+begin
+  START TRANSACTION;
+    INSERT INTO `endereco`(`rua`, `Estado_Id`, `Cidade_id`, `bairro`, `cep`, `numero`, `pais_id`) VALUES (_rua, _estado, _cidade, _bairro,_cep,_numero,_pais);
+        SELECT LAST_INSERT_ID() into @idEndereco;
+        INSERT INTO `cliente`(`email`, `rg`, `endereco_idendereco`, `nascimento`) VALUES (_email,_rg,@idEndereco, _data);
+        SELECT LAST_INSERT_ID() into @idCliente;
+        INSERT INTO `telefone`( `telefone`, `tipo`, `cliente_id`) VALUES (_telefone,_tipo,@idCliente);
+        INSERT INTO `login`(`cpf`, `NomeComp`, `senha`, `cliente_id`) VALUES (_cpf,_nome,_senha,@idCliente);
+  COMMIT;
+end$$
+delimiter ;
+
+
+
+#Criando FUNCTION
+ DELIMITER $
+ CREATE FUNCTION retornaPais(_pais varchar(255)) RETURNS int
+ BEGIN
+  SELECT id into @idPais from pais p where p.SL_NOME_PT = _pais;
+  RETURN @idPais;
+ END
+ $
+
+#Criando FUNCTION
+ DELIMITER $
+ CREATE FUNCTION retornaEstado(_estado varchar(255), _pais int) RETURNS int
+ BEGIN
+  SELECT id into @idEstado from estado e where e.Nome = _estado and e.UF_SL = _pais;
+  RETURN @idEstado;
+ END
+ $
+#Criando FUNCTION
+ DELIMITER $
+ CREATE FUNCTION retornaCidade(_cidade varchar(255), _estado int) RETURNS int
+ BEGIN
+  SELECT id into @idCidade from cidade c where c.Nome = _cidade and c.Uf = _estado;
+  RETURN @idCidade;
+ END
+ $
