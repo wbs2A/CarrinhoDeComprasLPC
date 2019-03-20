@@ -1,8 +1,4 @@
-$.get('controller.php?produto',function (data) {
-	if(document.querySelector('#produto')){
-        document.getElementById("produto").innerHTML=data;
-	}  
-});
+
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
