@@ -26,7 +26,7 @@ USE `carrinho` ;
 -- Table `carrinho`.`pais`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carrinho`.`pais` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
   `SL_NOME_PT` VARCHAR(255) NOT NULL,
   `sigla` VARCHAR(5) NOT NULL,
@@ -38,12 +38,12 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `carrinho`.`estado`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carrinho`.`estado` (
-  `Id` INT(11) NOT NULL,
+  `Id` INT(11) NOT NULL AUTO_INCREMENT,
   `Nome` VARCHAR(50) NOT NULL,
   `Uf` VARCHAR(2) NOT NULL,
-  `UF_DDD` VARCHAR(10) NOT NULL,
-  `IBGE` INT(11) NOT NULL,
-  `UF_SL` INT(11) NOT NULL,
+  `UF_DDD` VARCHAR(10) NULL DEFAULT NULL,
+  `IBGE` INT(11) NULL DEFAULT NULL,
+  `UF_SL` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -53,8 +53,8 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `carrinho`.`cidade`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carrinho`.`cidade` (
-  `id` INT(11) NOT NULL,
-  `IBGE` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `IBGE` INT(11) NULL DEFAULT NULL,
   `Nome` VARCHAR(255) NOT NULL,
   `Uf` VARCHAR(2) NOT NULL,
   PRIMARY KEY (`id`))
@@ -6231,22 +6231,29 @@ delimiter ;
  BEGIN
   SELECT id into @idPais from pais p where p.SL_NOME_PT = _pais;
   RETURN @idPais;
- END
- $
-
+ END$
+DELIMITER ;
 #Criando FUNCTION
  DELIMITER $
  CREATE FUNCTION retornaEstado(_estado varchar(255), _pais int) RETURNS int
  BEGIN
   SELECT id into @idEstado from estado e where e.Nome = _estado and e.UF_SL = _pais;
   RETURN @idEstado;
- END
- $
+ END$
+ DELIMITER ;
 #Criando FUNCTION
  DELIMITER $
  CREATE FUNCTION retornaCidade(_cidade varchar(255), _estado int) RETURNS int
  BEGIN
   SELECT id into @idCidade from cidade c where c.Nome = _cidade and c.Uf = _estado;
   RETURN @idCidade;
- END
- $
+ END$
+DELIMITER ;
+DELIMITER $
+CREATE PROCEDURE `InserirCidade`(IN `_ibge` INT, IN `_nome` VARCHAR(255), IN `_uf` VARCHAR(2))
+BEGIN
+  START TRANSACTION;
+      INSERT INTO `cidade`(`IBGE`, `Nome`, `Uf`) VALUES (_ibge,_nome,_uf);
+    COMMIT;
+END$
+DELIMITER ;

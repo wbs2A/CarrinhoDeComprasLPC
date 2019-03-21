@@ -1,5 +1,6 @@
 <?php
 include_once('banco.php');
+include_once('ModelEndereco.php');
 /**
  * 
  */
@@ -31,12 +32,10 @@ class ModelUser{
         return $user[0];
     }
     public function insertUser($dados){
-        $pais = $this->getAll('SELECT retornaPais("'.$dados['pais'].'");');
-        $estado= $this->getAll('SELECT retornaEstado( "'.$dados['estado'].'",'.$pais[0]->{'retornaPais("'.$dados['pais'].'")'}.')');
-
-        $cidade= $this->getAll('SELECT retornaCidade("'.$dados['cidade'].'",'.$estado[0]->{'retornaEstado( "'.$dados['estado'].'",'.$pais[0]->{'retornaPais("'.$dados['pais'].'")'}.')'}.')');
-
-        $t=$this->setAll('call InserirUser("'.$dados['nome'].'","'.$dados['email'].'","'.$dados['nascimento'].'","'.$dados['tipo'].'","'.$dados['telefone'].'","'.$dados['cpf'].'","'.$dados['rg'].'",'.$pais[0]->{'retornaPais("'.$dados['pais'].'")'}.',"'.$dados['cep'].'",'.$dados['numero'].',"'.$dados['bairro'].'", "'.$dados['rua'].'",'.$estado[0]->{'retornaEstado( "'.$dados['estado'].'",'.$pais[0]->{'retornaPais("'.$dados['pais'].'")'}.')'}.','.$cidade[0]->{'retornaCidade("'.$dados['cidade'].'",'.$estado[0]->{'retornaEstado( "'.$dados['estado'].'",'.$pais[0]->{'retornaPais("'.$dados['pais'].'")'}.')'}.')'}.',"'.$dados['senha'].'");');
+        $pais = (new ModelEndereco())->getPais($dados);
+        $estado= (new ModelEndereco())->getEstado($dados,$pais);
+        $cidade= (new ModelEndereco())->getCidade($dados,$estado);
+        $t=$this->setAll('call InserirUser("'.$dados['nome'].'","'.$dados['email'].'","'.$dados['nascimento'].'","'.$dados['tipo'].'","'.$dados['telefone'].'","'.$dados['cpf'].'","'.$dados['rg'].'",'.$pais.',"'.$dados['cep'].'",'.$dados['numero'].',"'.$dados['bairro'].'", "'.$dados['rua'].'",'.$estado.','.$cidade.',"'.$dados['senha'].'");');
         $user=$this->validaUser($dados);
         return $user;
     }

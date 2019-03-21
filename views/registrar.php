@@ -28,7 +28,8 @@ include 'navbar.php'
 								  </div>
 						          <div class="col-md-4 mb-3">
 								    <label for="telefone">Telefone</label>
-								    <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="">
+								    <input type="tel" class="form-control" id="telefone" aria-describedby="telefoneHelp" name="telefone" placeholder="">
+								    <small id="emailHelp" class="form-text text-muted">Por favor, insira apenas numeros.</small>
 								  </div>
 								  <div class="col-md-4 mb-3">
 								    <label for="tipo">Tipo</label>
@@ -41,7 +42,7 @@ include 'navbar.php'
 								<div class="row">
 						          <div class="col-md-6 mb-3">
 						            <label for="cpf">CPF</label>
-						            <input type="number" class="form-control" id="cpf" name="cpf" placeholder="CPF" value="" required>
+						            <input type="number" class="form-control" id="cpf" maxlength="14" name="cpf" placeholder="CPF" value="" required>
 						          </div>
 						          <div class="col-md-6 mb-3">
 						            <label for="rg">RG</label>
