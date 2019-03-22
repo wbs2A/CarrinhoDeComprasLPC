@@ -23,7 +23,7 @@ echo '
                             </ul>
                             <ul class="navbar_user">
                                 <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                
+                            
                                 <li class="nav-item dropdown">
                                     <a class="nav-link  " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <i class="fa fa-user" aria-hidden="true"></i>
@@ -35,9 +35,9 @@ echo '
                                   </li>
                                
                                 <li class="checkout">
-                                    <a href="#">
+                                    <a href="carrinho.php">
                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                        <span id="checkout_items" class="checkout_items">2</span>
+                                        <span id="checkout_items" class="checkout_items">0</span>
                                     </a>
                                 </li>
                             </ul>

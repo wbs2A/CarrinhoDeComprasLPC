@@ -1,39 +1,41 @@
-
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+$.get('controller.php?produto',function (data) {
+	if(document.querySelector('#produto')){
+        document.getElementById("produto").innerHTML=data;
+	}
+});
+function setProdutoCarrinho(prod) {
+    localStorage.setItem("carrinho", prod);
+    $.post('controller.php?carrinho', {'item': prod}).done(function (data) {
+        alert(data);
+    });
 }
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
+function getProdutosCarrinho() {
+    if(!localStorage.getItem("carrinho"))
+        localStorage.setItem("carrinho", "");
+    return localStorage.getItem("carrinho");
 }
 
-function checkCookie(prod) {
-    var c = getCookie("carrinho");
+function checkProdutoCarrinho(prod) {
+    var c = getProdutosCarrinho(prod);
     if(c.search(prod)!==-1) {
-        alert("Welcome again " + c);
+        return 1;
     }
     else {
-        s =  (getCookie("carrinho")+(prod.toString()+","));
-        setCookie("carrinho",s, 365);
+        s =  (getProdutosCarrinho("carrinho")+(prod.toString()+","));
+        setProdutoCarrinho(s);
     }
+    return 0;
 }
 function addCarrinho(prod){
-    if (checkCookie(prod)){
+    if (checkProdutoCarrinho(prod)){
         alert("já tem");
+    }else{
+        $('#checkout_items').html((getProdutosCarrinho().split(',')).length-1);
     }
-
 }
+
+$(document).ready(function () {
+    if(getProdutosCarrinho() !== null)
+        $('#checkout_items').html((getProdutosCarrinho().split(',')).length-1);
+});
