@@ -1,8 +1,3 @@
-$.get('controller.php?produto',function (data) {
-	if(document.querySelector('#produto')){
-        document.getElementById("produto").innerHTML=data;
-	}
-});
 function setProdutoCarrinho(prod, n) {
     localStorage.setItem("carrinho", prod);
     $.post('controller.php?carrinho', {'item': n}).done(function (data) {
