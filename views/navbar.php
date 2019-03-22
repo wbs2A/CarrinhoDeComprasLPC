@@ -18,7 +18,7 @@ echo '
                         </div>
                         <nav class="navbar">
                             <ul class="navbar_menu">
-                                <li><a href="#">home</a></li>
+                                <li><a href="index.php">home</a></li>
                                 <li><a href="htmlFiles/contact.html">contact</a></li>
                             </ul>
                             <ul class="navbar_user">
@@ -66,7 +66,7 @@ echo '
                         </li>
                     </ul>
                 </li>
-                <li class="menu_item"><a href="#">home</a></li>
+                <li class="menu_item"><a href="index.php">home</a></li>
                 <li class="menu_item"><a href="#">contact</a></li>
             </ul>
         </div>
