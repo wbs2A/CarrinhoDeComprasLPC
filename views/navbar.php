@@ -23,11 +23,7 @@ echo '
                             </ul>
                             <ul class="navbar_user">
                                 <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-<<<<<<< HEAD
 
-=======
-                            
->>>>>>> 23936aa15847cd6e4e69ce4b4712ec183c85102a
                                 <li class="nav-item dropdown">
                                     <a class="nav-link  " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <i class="fa fa-user" aria-hidden="true"></i>
