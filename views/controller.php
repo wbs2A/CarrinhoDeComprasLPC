@@ -33,12 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 			$t=$user->validaUser($_POST);
 			if (isset($t)) {
 				$_SESSION["user"]=$t;
-				header("Location: ../index.php");
+				header("Location: index.php");
 			}else{
 				unset($_SESSION['user']);
 				header("Location: login.php");
 			}
-			
+
 			break;
 		case 'criar':
 			include_once('../model/App/ModelUser.php');
@@ -51,6 +51,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 				unset($_SESSION['user']);
 			}
 			break;
+        case 'carrinho':
+            include_once "../model/App/ModelCompra.php";
+            $compra = new ModelCompra();
+            echo $compra->insertCarrinho($_POST['item']);
+            /*if(isset($_SESSION['user'])){
+                if($_POST['item']){
+
+                }
+            }*/
+            break;
 		default:
 			break;
 	}

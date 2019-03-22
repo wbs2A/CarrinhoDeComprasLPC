@@ -124,8 +124,8 @@ COMMENT = '	';
 CREATE TABLE IF NOT EXISTS `carrinho`.`compra` (
   `idCompra` INT(11) NOT NULL AUTO_INCREMENT,
   `estado` ENUM('Nocarrinho', 'Finalizada') NOT NULL,
-  `entrega` ENUM('semComprovante', 'preparandoEntrega', 'aCaminho', 'entregue') NOT NULL,
-  `endereco_idendereco` INT(11) NOT NULL,
+  `entrega` ENUM('semComprovante', 'preparandoEntrega', 'aCaminho', 'entregue'),
+  `endereco_idendereco` INT(11),
   `cliente_id` INT(11) NOT NULL,
   PRIMARY KEY (`idCompra`),
   INDEX `fk_Compra_endereco1_idx` (`endereco_idendereco` ASC),
@@ -6191,10 +6191,10 @@ INSERT INTO `cliente`(`email`, `rg`, `endereco_idendereco`, `id`, `nascimento`) 
 
 delimiter //
 
-create procedure InserirCarrinho(in idEndereco int, in idCliente int, in produto int, in q_quantidade int)
+create procedure InserirCarrinho(in idCliente int, in produto int, in q_quantidade int)
 begin
 	START TRANSACTION;
-		INSERT INTO `compra`(`estado`, `endereco_idendereco`, `cliente_id`) VALUES ("Nocarrinho",idEndereco,idCliente);
+		INSERT INTO `compra`(`estado`, `cliente_id`) VALUES ("Nocarrinho",idCliente);
 		set @idCompra = 0;
 		SELECT LAST_INSERT_ID() into @idCompra;
 		INSERT INTO `produto_has_compra`(`Produto_idProduto`, `Compra_idCompra`, `quantidade`) VALUES (produto, @idCompra, q_quantidade);
@@ -6222,6 +6222,7 @@ begin
   COMMIT;
 end$$
 delimiter ;
+
 
 
 
@@ -6256,4 +6257,18 @@ BEGIN
       INSERT INTO `cidade`(`IBGE`, `Nome`, `Uf`) VALUES (_ibge,_nome,_uf);
     COMMIT;
 END$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getCompraOrCreate`(in idCliente int, out hasCompra int)
+begin
+START TRANSACTION;
+select idCompra into @variavel from compra where cliente_id = idCliente;
+IF @variavel=0 THEN
+	INSERT INTO `compra` (`estado`, `cliente_id`) VALUES ('Nocarrinho', idCliente);
+    COMMIT;
+else
+	set hasCompra = @variavel;
+end if;
+end$$
 DELIMITER ;

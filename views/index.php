@@ -1,8 +1,8 @@
 <?php
 include 'header.php';
-include 'navbar.php'
+include 'navbar.php';
 ?>
-	<script src="../js/app.js"></script>
+
 		<!-- Slider -->
 
 		<div class="main_slider" style="background-image:url(../images/slider_1.jpg);">
