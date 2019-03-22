@@ -1,10 +1,14 @@
 <?php
 session_start();
+include_once('../model/App/ModelProduto.php');
+include_once('../model/App/ModelEndereco.php');
+include_once('../model/App/ModelUser.php');
+include_once "../model/App/ModelCompra.php";
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	$ac=explode("?", urldecode($_SERVER["REQUEST_URI"]));
-	switch ($ac[1]) {
+	$ac=explode("=",$ac[1]);
+	switch ($ac[0]) {
 		case 'produto':
-			include_once('../model/App/ModelProduto.php');
 			$produto=new ModelProduto();
 			$t=$produto->retorneTodosProdutosGrid();
 			echo $t;
@@ -16,11 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 			header("Location: index.php");
 			break;
 		case 'paises':
-			include_once('../model/App/ModelEndereco.php');
 			$endereco=new ModelEndereco();
 			$t=$endereco->getPaisesS();
 			echo $t;
 			break;
+        case 'removeProduto':
+            $prod = new ModelProduto();
+            $prod->removerProduto($ac[1]);
+            header("Location: carrinho.php");
 		default:
 			break;
 	}
@@ -28,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	$ac=explode("?", urldecode($_SERVER["REQUEST_URI"]));
 	switch ($ac[1]) {
 		case 'login':
-			include_once('../model/App/ModelUser.php');
 			$user=new ModelUser();
 			$t=$user->validaUser($_POST);
 			if (isset($t)) {
@@ -41,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 			break;
 		case 'criar':
-			include_once('../model/App/ModelUser.php');
 			$user=new ModelUser();
 			$t=$user->insertUser($_POST);
 			if (isset($t)) {
@@ -52,15 +57,20 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 			}
 			break;
         case 'carrinho':
-            include_once "../model/App/ModelCompra.php";
-            $compra = new ModelCompra();
-            echo $compra->insertCarrinho($_POST['item']);
-            /*if(isset($_SESSION['user'])){
-                if($_POST['item']){
-
+            if(isset($_SESSION['user'])){
+                $compra = new ModelCompra();
+                try{
+                    echo $compra->insertCarrinho($_POST['item']);
+                }catch (\Exception $e){
+                    echo $e;
                 }
-            }*/
+            }else{
+                echo "Precisa estar logado para guardar, maluco";
+            }
             break;
+        case 'quantidade':
+            $produto = new ModelProduto();
+            $produto->updateQuantidade($_POST['prod'], $_POST['valor']);
 		default:
 			break;
 	}

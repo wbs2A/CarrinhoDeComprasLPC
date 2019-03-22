@@ -793,7 +793,9 @@ section
 /*********************************
 3.6 Logo
 *********************************/
-
+th, td{
+	text-align: center;
+}
 .logo_container
 {
 	position: absolute;
