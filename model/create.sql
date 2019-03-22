@@ -6203,7 +6203,7 @@ end//
 
 delimiter ;
 
-call InserirCarrinho(1,1,2,4);
+call InserirCarrinho(1,2,4);
 
 INSERT INTO `login`(`cpf`, `NomeComp`, `senha`, `cliente_id`) VALUES ("010.101.010-10","Meu querido usuario Teste","meu teste",1);
 
