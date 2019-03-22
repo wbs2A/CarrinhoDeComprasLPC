@@ -18,6 +18,20 @@ class ModelProduto{
         return $this->processResults($statement);
     }
 
+    public function getProduto($idProduto){
+        return $this->getAll("select p.idProduto, p.nome, p.descricao, p.valor, p.categoria, i.caminho, f.quantidade from produto p INNER join imagem i on p.idProduto = i.Produto_idProduto inner join produto_has_compra f on p.idProduto = f.Produto_idProduto where p.idProduto=".$idProduto.";");
+    }
+
+    public function removerProduto($id){
+        $stmt = $this->conexao->query("DELETE FROM `produto_has_compra` WHERE Produto_idProduto=".$id);
+        $stmt->execute();
+    }
+
+    public function updateQuantidade($id, $quantidade){
+        $stmt = $this->conexao->query("UPDATE `produto_has_compra` SET `quantidade`=".$quantidade." WHERE Produto_idProduto=".$id);
+        $stmt->execute();
+    }
+
     private function processResults($statement)
     {
         $results = array();

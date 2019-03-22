@@ -14,12 +14,12 @@ echo '
                 <div class="row">
                     <div class="col-lg-12 text-right">
                         <div class="logo_container">
-                            <a href="#">Comprinhas<span>Dahora</span></a>
+                            <a href="index.php">Comprinhas<span>Dahora</span></a>
                         </div>
                         <nav class="navbar">
                             <ul class="navbar_menu">
-                                <li><a href="#">home</a></li>
-                                <li><a href="htmlFiles/contact.html">contact</a></li>
+                                <li><a href="index.php">home</a></li>
+                                <li><a href="#">contact</a></li>
                             </ul>
                             <ul class="navbar_user">
                                 <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -66,7 +66,7 @@ echo '
                         </li>
                     </ul>
                 </li>
-                <li class="menu_item"><a href="#">home</a></li>
+                <li class="menu_item"><a href="index.php">home</a></li>
                 <li class="menu_item"><a href="#">contact</a></li>
             </ul>
         </div>
