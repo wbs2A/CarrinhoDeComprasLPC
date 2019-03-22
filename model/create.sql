@@ -6191,14 +6191,13 @@ INSERT INTO `cliente`(`email`, `rg`, `endereco_idendereco`, `id`, `nascimento`) 
 
 delimiter //
 
-create procedure InserirCarrinho(in idCliente int, in produto int, in q_quantidade int)
+create procedure InserirCarrinho(in idCliente int, in produto int, in q_quantidade int, in Compra_idCompra int)
 begin
+	begin
 	START TRANSACTION;
-		INSERT INTO `compra`(`estado`, `cliente_id`) VALUES ("Nocarrinho",idCliente);
-		set @idCompra = 0;
-		SELECT LAST_INSERT_ID() into @idCompra;
-		INSERT INTO `produto_has_compra`(`Produto_idProduto`, `Compra_idCompra`, `quantidade`) VALUES (produto, @idCompra, q_quantidade);
+		INSERT INTO `produto_has_compra`(`Produto_idProduto`, `Compra_idCompra`, `quantidade`) VALUES (produto, idCompra, q_quantidade);
 	COMMIT;
+end
 end//
 
 delimiter ;
