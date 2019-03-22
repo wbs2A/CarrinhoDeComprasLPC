@@ -23,17 +23,17 @@ echo '
                             </ul>
                             <ul class="navbar_user">
                                 <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                            
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link  " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <i class="fa fa-user" aria-hidden="true"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a id="navUserTopo" class="dropdown-item row p-0 m-0 text-center href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Sign In</a>
-                                        <a id="navUserBase" class="dropdown-item row p-0 m-0 text-center href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Register</a>
+                                        <a id="navUserTopo" class="dropdown-item row p-0 m-0 text-center" href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Sign In</a>
+                                        <a id="navUserBase" class="dropdown-item row p-0 m-0 text-center" href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Register</a>
                                     </div>
                                   </li>
-                               
+
                                 <li class="checkout">
                                     <a href="carrinho.php">
                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
