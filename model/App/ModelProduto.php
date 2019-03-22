@@ -67,7 +67,7 @@ class ModelProduto{
                             <div class="product_price">R$' . $value->valor . '</div>
                         </div>
                     </div>
-                    <div class="red_button add_to_cart_button"><a href="#" onclick="addCarrinho('.$value->idProduto.')">add to cart</a></div>
+                    <div class="red_button add_to_cart_button"><a onclick="addCarrinho('.$value->idProduto.')">add to cart</a></div>
                 </div>';
 
         }
