@@ -19,11 +19,7 @@ echo '
                         <nav class="navbar">
                             <ul class="navbar_menu">
                                 <li><a href="index.php">home</a></li>
-<<<<<<< HEAD
-                                <li><a href="htmlFiles/contact.html">contact</a></li>
-=======
                                 <li><a href="#">contact</a></li>
->>>>>>> 7ac61b53acbe9383f9d752e268fcd89f9fa0e1e1
                             </ul>
                             <ul class="navbar_user">
                                 <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
