@@ -1,4 +1,4 @@
-
+//Função que conecta com o serviço necessário para inserir um dado produto no carrinho.
 function setProdutoCarrinho(n) {
     $.post('controller.php?carrinho', {'item': n}).done(function (data) {
         if(data>0){
@@ -10,6 +10,7 @@ function setProdutoCarrinho(n) {
     });
 }
 
+//Função que retorna
 function getProdutosCarrinho() {
     $.get('controller.php?getcliente',function (data) {
         if(eval(data)){

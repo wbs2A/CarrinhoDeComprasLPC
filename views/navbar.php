@@ -18,8 +18,8 @@ echo '
                         </div>
                         <nav class="navbar">
                             <ul class="navbar_menu">
-                                <li><a href="index.php">home</a></li>
-                                <li><a href="contact.php">contact</a></li>
+                                <li><a href="index.php">Início</a></li>
+                                <li><a href="contact.php">Contato</a></li>
                             </ul>
                             <ul class="navbar_user">
                                 <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -29,8 +29,8 @@ echo '
                                       <i class="fa fa-user" aria-hidden="true"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a id="navUserTopo" class="dropdown-item row p-0 m-0 text-center" href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Sign In</a>
-                                        <a id="navUserBase" class="dropdown-item row p-0 m-0 text-center" href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Register</a>
+                                        <a id="navUserTopo" class="dropdown-item row p-0 m-0 text-center" href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Acessar</a>
+                                        <a id="navUserBase" class="dropdown-item row p-0 m-0 text-center" href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Registrar-se</a>
                                     </div>
                                   </li>
 
@@ -64,13 +64,13 @@ echo ' >
                     <a href="#"><i class="fa fa-user" aria-hidden="true"></i><i class="fa fa-angle-down"></i></a>
                     <ul class="menu_selection">
                         <li>
-                            <a id="navUserTopo" class="dropdown-item row p-0 m-0 text-center" href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Sign In</a>
-                            <a id="navUserBase" class="text-center" href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Register</a>
+                            <a id="navUserTopo" class="dropdown-item row p-0 m-0 text-center" href="login.php"><i class="fa m-2 fa-sign-in" aria-hidden="true"></i>Acessar</a>
+                            <a id="navUserBase" class="text-center" href="registrar.php"><i class="fa m-2 fa-user-plus" aria-hidden="true"></i>Registrar-se</a>
                         </li>
                     </ul>
                 </li>
-                <li class="menu_item"><a href="index.php">home</a></li>
-                <li class="menu_item"><a href="contact.php">contact</a></li>
+                <li class="menu_item"><a href="index.php">Início</a></li>
+                <li class="menu_item"><a href="contact.php">Contato</a></li>
             </ul>
         </div>
     </div>

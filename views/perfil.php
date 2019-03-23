@@ -20,7 +20,7 @@ echo '<script type="text/javascript" src="../js/registro.js"></script>
 				<div class="container-fluid m-2 justify-content-center ">
 				    <div class="card col p-2">
 				    	<div class="card-header ">
-                <h3>As informações da sua conta.</h3>
+                <h3>As informações da sua conta. <i id="edit1" style="padding-left: 100px;position: relative" class="fas fa-edit"></i></h3>
 						  </div>
 
 							<div class="row p-2 m-3 ">
