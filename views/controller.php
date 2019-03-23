@@ -46,6 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 			}
 
 			break;
+		case 'message':
+				var_dump($_POST);
+				break;
+
 		case 'criar':
 			$user=new ModelUser();
 			$t=$user->insertUser($_POST);
