@@ -6,8 +6,8 @@
  */
 class Banco{
 	private $nome = "carrinho";
-	private $user = "PW_user";
-	private $password = "aula_userPw";
+	private $user = "root";
+	private $password = "";
 	private static $instance;
 	public static function getInstance() {
         if ( !self::$instance ){

@@ -6191,7 +6191,7 @@ INSERT INTO `cliente`(`email`, `rg`, `endereco_idendereco`, `id`, `nascimento`) 
 
 delimiter //
 
-create procedure InserirCarrinho(in idCliente int, in produto int, in q_quantidade int, in Compra_idCompra int)
+create procedure InserirCarrinho(in idCliente int, in produto int, in q_quantidade int, in idCompra int)
 begin
 	begin
 	START TRANSACTION;
