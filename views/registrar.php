@@ -109,7 +109,7 @@ include 'navbar.php'
 			 								  </div>
 										     <div class="col-md-4 mb-3">
 										         <label for="validade-cartao">Validade</label>
-										         <input type="date" class="form-control" id="validade-cartao" name="validade-cartao">
+										         <input type="month" class="form-control" id="validade-cartao" name="validade-cartao">
 										     </div>
 										 </div>
 									 </fieldset>

@@ -40,6 +40,7 @@ class ModelUser{
 				$dados['numero'].',"'.$dados['bairro'].'", "'.$dados['rua'].'",'.$estado.','.$cidade.',"'.$dados['senha'].'",'.
 				$dados['numero'].','.$dados['vcc'].','.$dados['validade-cartao'].');');
         $user=$this->validaUser($dados);
+				echo $dados['validade-cartao'];
         return $user;
     }
 		private function getCliente($idcliente){

@@ -116,8 +116,8 @@ echo '<script type="text/javascript" src="../js/registro.js"></script>
   							            <input type="text" class="form-control" id="vcc" name="vcc" placeholder="" disabled value=" ' . $info->pagamento->cvvCartao . '">
   							          </div>
   							           <div class="col-md-5 mb-3">
-  							               <label for="validade-cartao">Validade</label>
-  							               <input type="date" class="form-control" id="validade-cartao" name="validade-cartao" disabled value=" ' . $info->pagamento->vencimentoCartao . '">
+  							               <label for="validade-cartao">Validade</label> '.$info->pagamento->vencimentoCartao.'
+  							               <input type="month" class="form-control" id="validade-cartao" name="validade-cartao" disabled value="' . $info->pagamento->vencimentoCartao . '">
   							           </div>
   							       </div>
   							     </fieldset>
