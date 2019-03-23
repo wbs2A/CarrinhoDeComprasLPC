@@ -42,4 +42,25 @@ class ModelUser{
         $user=$this->validaUser($dados);
         return $user;
     }
+		private function getCliente($idcliente){
+			return ($this->getAll('select email, rg, endereco_idendereco as idendereco, nascimento from cliente c where id='.$idcliente))[0];
+		}
+		private function getTelefone($idcliente){
+			 return $this->getAll('select * from telefone where cliente_id='.$idcliente);
+		}
+		private function getEndereco($idendereco){
+			return ($this->getAll('SELECT e.rua, e.bairro, e.cep, e.numero, p.SL_NOME_PT as pais, est.Nome as estado, cid.Nome as cidade from endereco e INNER join pais p on e.pais_id = p.id INNER join estado est on e.Estado_Id = est.id INNER JOIN cidade cid on e.Cidade_id = cid.id where e.idendereco ='.$idendereco))[0];
+		}
+		private function getPagamento($idcliente){
+			return ($this->getAll('select * from pagamento where cliente_id='.$idcliente))[0];
+		}
+		public function infoUser(){
+			$user=$_SESSION['user'];
+			$cliente=$this->getCliente($user->cliente_id);
+			$cliente->telefone = $this->getTelefone($user->cliente_id);
+			$cliente->endereco= $this->getEndereco($cliente->idendereco);
+			$cliente->user=$user;
+			$cliente->pagamento=$this->getPagamento($user->cliente_id);
+			return $cliente;
+		}
 }

@@ -36,6 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 			$t=$endereco->getPaisesS();
 			echo $t;
 			break;
+			case 'allUser':
+				return (new ModelUser())->infoUser();
+				break;
         case 'getcliente':
             if (isset($_SESSION['user']))
                 echo 1;
