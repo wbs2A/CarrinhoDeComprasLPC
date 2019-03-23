@@ -6261,14 +6261,16 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getCompraOrCreate`(in idCliente int, out hasCompra int)
+CREATE PROCEDURE `getOrSetCompra`(IN `idCliente` INT, INOUT `hasCompra` INT)
 begin
-START TRANSACTION;
-select idCompra into @variavel from compra where cliente_id = idCliente;
 IF @variavel=0 THEN
 	INSERT INTO `compra` (`estado`, `cliente_id`) VALUES ('Nocarrinho', idCliente);
+  select idCompra into hasCompra from compra where cliente_id = idCliente;
+  IF isnull(hasCompra) THEN
+    START TRANSACTION;
+      INSERT INTO `compra` (`estado`, `cliente_id`) VALUES ('Nocarrinho', idCliente);
+      SELECT LAST_INSERT_ID() into hasCompra;
     COMMIT;
-else
-	set hasCompra = @variavel;
-end if;
+  end if;
 end$$
 DELIMITER ;

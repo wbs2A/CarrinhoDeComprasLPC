@@ -16,9 +16,13 @@ class ModelCompra{
     }
 
     public function getCompra($cliente){
-        $stmt = $this->conexao->prepare("select idCompra from compra where cliente_id=".$cliente." and estado='Nocarrinho';");
+        $stmt = $this->conexao->prepare("call getOrSetCompra(?,@t);");
+        $stmt->execute(array($cliente));
+        $stmt=$this->conexao->prepare("select @t;");
         $stmt->execute();
-        return $stmt->fetchObject();
+        $compra = $stmt->fetchObject();
+        return $compra->{'@t'};
+
     }
 
     public function insertCarrinho($produto, $qquantidade=1){
@@ -28,14 +32,14 @@ class ModelCompra{
                 $_SESSION['user']->cliente_id.",".
                 $produto.",".
                 $qquantidade.",".
-                $compra->idCompra.");");
+                $compra.");");
             return $stmt->execute();
         }
     }
 
     public function getCarrinho(){
         $idcompra = $this->getCompra($_SESSION['user']->cliente_id);
-        $stmt = $this->conexao->prepare("select * from produto_has_compra where Compra_idCompra=".$idcompra->idCompra.";");
+        $stmt = $this->conexao->prepare("select * from produto_has_compra where Compra_idCompra=".$idcompra.";");
         $stmt->execute();
         return $stmt->fetchAll();
     }
