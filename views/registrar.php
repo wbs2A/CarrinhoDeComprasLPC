@@ -96,7 +96,24 @@ include 'navbar.php'
 							  		<label for="senha">Senha</label>
 							    	<input type="password" required name="senha" id="senha" class="form-control" placeholder="Senha">
 							  	</div>
-							  
+									<fieldset>
+											<legend>Cartão de crédito</legend>
+											<div class="row">
+										    <div class="col-md-4 mb-3">
+										         <label for="numero-cartao">Número</label>
+										         <input type="number" class="form-control" id="numero-cartao" name="numero-cartao">
+										     </div>
+			 								  <div class="col-md-4 mb-3">
+			 								    <label for="vcc">VCC</label>
+			 								    <input type="number" class="form-control" id="vcc" name="vcc" placeholder="">
+			 								  </div>
+										     <div class="col-md-4 mb-3">
+										         <label for="validade-cartao">Validade</label>
+										         <input type="month" class="form-control" id="validade-cartao" name="validade-cartao">
+										     </div>
+										 </div>
+									 </fieldset>
+
 							  	<div class="row justify-content-center">
 							  		<button type="submit" class="btn btn-primary col-auto">Criar</button>
 							  	</div>

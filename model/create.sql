@@ -6209,6 +6209,7 @@ INSERT INTO `login`(`cpf`, `NomeComp`, `senha`, `cliente_id`) VALUES ("010.101.0
 delimiter $$
 
 create procedure InserirUser(in _nome varchar(50),in _email varchar(45),in _data datetime,in _tipo ENUM('fixo', 'celular'),in _telefone varchar(45),in _cpf varchar(15),in _rg varchar(15),in _pais int,in _cep varchar(45),in _numero int, in _bairro varchar(45),in _rua varchar(45),in _estado int,in _cidade int,in _senha text)
+create procedure InserirUser(in _nome varchar(50),in _email varchar(45),in _data datetime,in _tipo ENUM('fixo', 'celular'),in _telefone varchar(45),in _cpf varchar(15),in _rg varchar(15),in _pais int,in _cep varchar(45),in _numero int, in _bairro varchar(45),in _rua varchar(45),in _estado int,in _cidade int,in _senha text,in _numeroCartao int,in _vcc int,in _vencimento date)
 begin
   START TRANSACTION;
     INSERT INTO `endereco`(`rua`, `Estado_Id`, `Cidade_id`, `bairro`, `cep`, `numero`, `pais_id`) VALUES (_rua, _estado, _cidade, _bairro,_cep,_numero,_pais);
@@ -6217,6 +6218,7 @@ begin
         SELECT LAST_INSERT_ID() into @idCliente;
         INSERT INTO `telefone`( `telefone`, `tipo`, `cliente_id`) VALUES (_telefone,_tipo,@idCliente);
         INSERT INTO `login`(`cpf`, `NomeComp`, `senha`, `cliente_id`) VALUES (_cpf,_nome,_senha,@idCliente);
+        INSERT INTO `pagamento`(`nCartao`, `vencimentoCartao`, `cvvCartao`, `cliente_id`) VALUES (_numeroCartao, _vencimento,_vcc,@idCliente);
   COMMIT;
 end$$
 delimiter ;
