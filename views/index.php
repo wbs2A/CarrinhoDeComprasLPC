@@ -27,21 +27,21 @@ include 'navbar.php';
 					<div class="col-md-4">
 						<div class="banner_item align-items-center" style="background-image:url(../images/banner_1.jpg)">
 							<div class="banner_category">
-								<a href="htmlFiles/categories.html">feminino</a>
+								<a>feminino</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="banner_item align-items-center" style="background-image:url(../images/banner_2.jpg)">
 							<div class="banner_category">
-								<a href="htmlFiles/categories.html">acessórios</a>
+								<a>acessórios</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="banner_item align-items-center" style="background-image:url(../images/banner_3.jpg)">
 							<div class="banner_category">
-								<a href="htmlFiles/categories.html">masculino</a>
+								<a>masculino</a>
 							</div>
 						</div>
 					</div>
@@ -97,7 +97,6 @@ include 'navbar.php';
 							<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
 							<div class="benefit_content">
 								<h6>Frete grátis</h6>
-								<p>Suffered Alteration in Some Form</p>
 							</div>
 						</div>
 					</div>
@@ -105,8 +104,7 @@ include 'navbar.php';
 						<div class="benefit_item d-flex flex-row align-items-center">
 							<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
 							<div class="benefit_content">
-								<h6>cach on delivery</h6>
-								<p>The Internet Tend To Repeat</p>
+								<h6>Pague na entrega</h6>
 							</div>
 						</div>
 					</div>
@@ -115,7 +113,6 @@ include 'navbar.php';
 							<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
 							<div class="benefit_content">
 								<h6>Retorno em 45 dias</h6>
-								<p>Making it Look Like Readable</p>
 							</div>
 						</div>
 					</div>

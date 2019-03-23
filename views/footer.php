@@ -13,7 +13,7 @@
 			<div class="col-lg-6">
 				<form>
 					<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-						<input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
+						<input id="newsletter_email" type="email" placeholder="Digite seu e-mail" required="required" data-error="Valid email is required.">
 						<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">inscrever</button>
 					</div>
 				</form>

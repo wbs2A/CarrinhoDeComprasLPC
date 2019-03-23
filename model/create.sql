@@ -200,7 +200,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `carrinho`.`pagamento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `carrinho`.`pagamento` (
-  `idpagamento` INT(11) NOT NULL,
+  `idpagamento` INT(11) NOT NULL AUTO_INCREMENT,
   `nCartao` INT(11) NOT NULL,
   `vencimentoCartao` DATE NULL DEFAULT NULL,
   `cvvCartao` INT(11) NULL DEFAULT NULL,

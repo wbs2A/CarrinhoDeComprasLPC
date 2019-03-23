@@ -1,4 +1,7 @@
 <?php
+/**
+ * Este arquivo foi criado apenas para que a Cintia treinasse um cadastro com o PHP.
+ */
 $servername = "localhost";
 $username = "root";
 $password = "laboratorio";
