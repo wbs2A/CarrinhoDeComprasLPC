@@ -35,7 +35,10 @@ echo '
                                   </li>
 
                                 <li class="checkout">
-                                    <a href="carrinho.php">
+                                    <a ';
+if (isset($_SESSION['user']))
+    echo 'href="carrinho.php"';
+echo ' >
                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                         <span id="checkout_items" class="checkout_items">0</span>
                                     </a>

@@ -6208,7 +6208,6 @@ INSERT INTO `login`(`cpf`, `NomeComp`, `senha`, `cliente_id`) VALUES ("010.101.0
 
 delimiter $$
 
-create procedure InserirUser(in _nome varchar(50),in _email varchar(45),in _data datetime,in _tipo ENUM('fixo', 'celular'),in _telefone varchar(45),in _cpf varchar(15),in _rg varchar(15),in _pais int,in _cep varchar(45),in _numero int, in _bairro varchar(45),in _rua varchar(45),in _estado int,in _cidade int,in _senha text)
 create procedure InserirUser(in _nome varchar(50),in _email varchar(45),in _data datetime,in _tipo ENUM('fixo', 'celular'),in _telefone varchar(45),in _cpf varchar(15),in _rg varchar(15),in _pais int,in _cep varchar(45),in _numero int, in _bairro varchar(45),in _rua varchar(45),in _estado int,in _cidade int,in _senha text,in _numeroCartao int,in _vcc int,in _vencimento date)
 begin
   START TRANSACTION;
@@ -6260,12 +6259,9 @@ END$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getCompraOrCreate`(in idCliente int, out hasCompra int)
 CREATE PROCEDURE `getOrSetCompra`(IN `idCliente` INT, INOUT `hasCompra` INT)
 begin
-IF @variavel=0 THEN
-	INSERT INTO `compra` (`estado`, `cliente_id`) VALUES ('Nocarrinho', idCliente);
-  select idCompra into hasCompra from compra where cliente_id = idCliente;
+  select idCompra into hasCompra from compra where cliente_id = idCliente and estado="Nocarrinho";
   IF isnull(hasCompra) THEN
     START TRANSACTION;
       INSERT INTO `compra` (`estado`, `cliente_id`) VALUES ('Nocarrinho', idCliente);

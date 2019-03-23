@@ -27,26 +27,27 @@ echo "
       </thead>
       <tbody>
     ";
-foreach ($arrProdutos as $p){
-    $produto = $mProduto->getProduto($p['Produto_idProduto']);
-    echo '
+if($arrProdutos){
+    foreach ($arrProdutos as $p){
+        $produto = $mProduto->getProduto($p['Produto_idProduto']);
+        echo '
         <tr>
             <td>
            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">';
-                    $imagQ = count($produto);
-                    foreach ($produto as $key => $value2) {
-                       if ($key) {
-                            echo '<div class="carousel-item">
+        $imagQ = count($produto);
+        foreach ($produto as $key => $value2) {
+            if ($key) {
+                echo '<div class="carousel-item">
                                                       <img class="d-block w-80" style="height:10vw;" src="' . $value2->caminho . '" alt="First slide">
                                                     </div>';
-                        } else {
-                            echo'<div class="carousel-item active">
+            } else {
+                echo'<div class="carousel-item active">
                                                       <img class="d-block w-80" style="height:10vw;" src="' . $value2->caminho . '" alt="First slide">
                                                     </div>';
-                        }
-                    }
-echo '
+            }
+        }
+        echo '
                 </div>
             </div>
     </td>
@@ -54,18 +55,18 @@ echo '
             <td>'.$produto[0]->descricao.'</td>
             <td>'.$produto[0]->valor.'</td>
             <td><input id="quant" onchange="updateQuant('.$produto[0]->idProduto.',this.value)" type="number" value="'.$produto[0]->quantidade.'" step="1"/></td>
-            <td><a class="btn btn-danger" onclick="removeItem('.$produto[0]->idProduto.')" href="controller.php?removeProduto='.$produto[0]->idProduto.'">X</a></td>
+            <td><a class="btn btn-danger" href="controller.php?removeProduto='.$produto[0]->idProduto.'">X</a></td>
 
         </tr>
     ';
-}
-
-echo "
+    }
+    echo "
     </tbody>
     </table> 
     <br>
-    <button class='btn btn-primary'> Finalizar compra </button>
+    <a class='btn btn-primary' href='controller.php?finaliza=".$arrProdutos[0]['Compra_idCompra']."'> Finalizar compra </a>
     ";
+}
 echo '</div>';
 include "footer.php";
 ?>

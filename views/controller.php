@@ -13,6 +13,18 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 			$t=$produto->retorneTodosProdutosGrid();
 			echo $t;
 			break;
+        case 'carrinho':
+            $mCompra = new ModelCompra();
+            echo $mCompra->getCarrinho($ac[1]);
+            break;
+        case 'checkcarrinho':
+            $mCompra = new ModelCompra();
+            echo $mCompra->checkProd($ac[1]);
+            break;
+        case 'quantcarrinho':
+            $mCompra = new ModelCompra();
+            echo $mCompra->checkProd();
+            break;
 		case 'logout':
 			if (isset($_SESSION["user"])) {
 				unset($_SESSION['user']);
@@ -24,10 +36,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 			$t=$endereco->getPaisesS();
 			echo $t;
 			break;
+        case 'getcliente':
+            if (isset($_SESSION['user']))
+                echo 1;
+            else
+                echo 0;
+            break;
         case 'removeProduto':
             $prod = new ModelProduto();
             $prod->removerProduto($ac[1]);
             header("Location: carrinho.php");
+            break;
+        case 'finaliza':
+            $mProd = new ModelCompra();
+            $mProd->finalizaCompra($ac[1]);
+            header("Location: carrinho.php");
+            break;
 		default:
 			break;
 	}

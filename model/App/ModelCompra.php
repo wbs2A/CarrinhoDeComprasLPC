@@ -37,10 +37,25 @@ class ModelCompra{
         }
     }
 
-    public function getCarrinho(){
+    public function checkProd($prod=0){
+        if($prod)
+            return count($this->getCarrinho($prod));
+        else
+            return count($this->getCarrinho());
+    }
+    public function getCarrinho($prod=0){
         $idcompra = $this->getCompra($_SESSION['user']->cliente_id);
-        $stmt = $this->conexao->prepare("select * from produto_has_compra where Compra_idCompra=".$idcompra.";");
+        $q = "select * from produto_has_compra where Compra_idCompra=".$idcompra;
+        if($prod)
+            $q = $q." and Produto_idProduto = ".$prod;
+        $q = $q.";";
+        $stmt = $this->conexao->prepare($q);
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+    public function finalizaCompra($id){
+        $stmt = $this->conexao->query("UPDATE `compra` SET `estado`='Finalizado', `entrega`='semComprovante' WHERE idCompra=".$id);
+        $stmt->execute();
     }
 }
